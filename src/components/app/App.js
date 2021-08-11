@@ -1,12 +1,10 @@
 import React from 'react';
-import Header from '../header/header';
-import './App.scss';
+import MainPage from '../pages/main-page/main-page';
+import './app.module.scss';
 
 function App() {
   return (
-    <div className='container'>
-      <Header/>
-    </div>
+    <MainPage />
   );
 }
 
