@@ -1,0 +1,13 @@
+@import '/src/styles/variables.scss';
+
+.site-list__item {
+  margin-right: 25px;
+
+  &--active {
+    color: $active-link;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}

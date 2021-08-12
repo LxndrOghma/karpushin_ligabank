@@ -1,0 +1,11 @@
+.page-header__logo {
+  margin-bottom: 2px;
+}
+.page-header__logo-img {
+  width: 150px;
+  height: 27px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
