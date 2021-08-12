@@ -1,12 +1,13 @@
-.container {
+@import '/src/styles/variables.scss';
 
+.container {
   min-width: 1366px;
   margin: 0 auto;
   padding: 0;
   min-height: 100vh;
-  background-color: #ffffff;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  background-color: $white;
+  font-family: $roboto-font;
   font-weight: 400;
   font-size: 16px;
-  color: #1F1E25;
+  color: $font-black;
 }
