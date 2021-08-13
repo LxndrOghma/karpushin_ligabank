@@ -1,0 +1,27 @@
+.contacts {
+  width: 122px;
+  padding-top: 9px;
+  padding-left: 4px;
+}
+
+.contacts__phone {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 16px;
+    height: 16px;
+    right: 133px;
+    bottom: 1px;
+    background-image: url('../../../assets/img/old_phone.svg');
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.contacts__description {
+  margin-top: 3px;
+}

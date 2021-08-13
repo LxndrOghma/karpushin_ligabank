@@ -1,0 +1,30 @@
+@import '/src/styles/variables.scss';
+
+.mobile-contacts {
+  width: 196px;
+  padding-left: 30px;
+  padding-top: 11px;
+}
+
+.mobile-contacts__phone {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 16px;
+    right: 62px;
+    bottom: 3px;
+    background-image: url('../../../assets/img/phone.svg');
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.mobile-contacts__description {
+  margin-top: 2px;
+  margin-right: 20px;
+}

@@ -1,0 +1,19 @@
+.footer-nav {
+  width: 144px;
+}
+
+.footer-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-nav__list-item {
+  font-weight: 500;
+  margin-top: 8px;
+  line-height: 22px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
