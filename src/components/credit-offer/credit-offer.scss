@@ -1,12 +1,12 @@
 @import '/src/styles/variables.scss';
 
-.credit-add {
+.credit-offer {
   width: 100%;
   min-height: 400px;
   background-color: $blue;
 }
 
-.credit-add__wrapper {
+.credit-offer__wrapper {
   position: relative;
   width: $site-width;
   margin: 0 auto;
@@ -51,14 +51,14 @@
   }
 }
 
-.credit-add__header {
+.credit-offer__header {
   font-size: 54px;
   line-height: 63px;
   color: $darker-white;
   margin-bottom: 8px;
 }
 
-.credit-add__slogan {
+.credit-offer__slogan {
   font-size: 22px;
   line-height: 26px;
   color: $light-gray;
@@ -66,7 +66,7 @@
   margin-bottom: 34px;
 }
 
-.credit-add__link {
+.credit-offer__link {
   display: block;
   width: max-content;
   background-color: $darker-white;
