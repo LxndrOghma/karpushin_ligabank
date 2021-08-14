@@ -1,4 +1,5 @@
 import React from 'react';
+import Converter from '../../converter/converter';
 import CreditOffer from '../../credit-offer/credit-offer';
 import PageFooter from '../../footer/page-footer/page-footer';
 import PageHeader from '../../header/page-header/page-header';
@@ -11,6 +12,7 @@ function MainPage() {
       <main>
         <h1 className='visually-hidden'>ЛИГА Банк</h1>
         <CreditOffer />
+        <Converter />
       </main>
       <PageFooter />
     </div>
