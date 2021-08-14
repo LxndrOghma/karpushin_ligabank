@@ -1,14 +1,15 @@
 @import '/src/styles/variables.scss';
 
 .page-header {
-  background-color: transparent;
-  width: 1366px;
-  margin: 0 auto;
+  width: 100%;
+  min-height: 91px;
+  background-color: $darker-white;
 }
 
 .page-header__wrapper {
+  width: 1366px;
+  padding: 27px 98px 31px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  padding: 27px 98px 31px;
-  background-color: $background-white;
 }

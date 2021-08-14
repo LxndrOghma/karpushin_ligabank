@@ -1,23 +1,24 @@
 @import '/src/styles/variables.scss';
 
 .page-footer {
-  background-color: transparent;
-  width: 1366px;
-  margin: 0 auto;
+  width: 100%;
+  min-height: 224px;
+  background-color: $darker-white;
 }
 
 .page-footer__wrapper {
+  width: $site-width;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 80px;
   padding: 49px 98px 55px;
-  background-color: $background-white;
 }
 
 .page-footer__description {
   font-size: 12px;
   line-height: 17px;
-  color: $footer-description;
+  color: $gray;
 }
 
 .page-footer__phone {
