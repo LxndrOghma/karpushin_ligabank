@@ -1,0 +1,86 @@
+@import '/src/styles/variables.scss';
+
+.credit-add {
+  width: 100%;
+  min-height: 400px;
+  background-color: $blue;
+}
+
+.credit-add__wrapper {
+  position: relative;
+  width: $site-width;
+  margin: 0 auto;
+  padding: 102px 268px 114px;
+  background-image: 
+    linear-gradient(180.24deg, rgba(32, 39, 179, 0) 36.31%, #2027B3 99.79%),
+    linear-gradient(183.47deg, rgba(56, 65, 255, 0) 66.3%, #3841FF 97.14%),
+    linear-gradient(183.47deg, rgba(56, 65, 255, 0) 27.26%, #3841FF 97.14%),
+    linear-gradient(180.24deg, rgba(32, 39, 179, 0) 32.89%, #2027B3 99.79%);
+  background-size: 
+    150px 400px,
+    150px 269px,
+    270px 269px,
+    298px 400px;
+  background-position: 
+    0 0,
+    150px 131px,
+    797px 131px,
+    1067px 0;
+  background-repeat: no-repeat;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 312px;
+    height: 202px;
+    top: 119px;
+    right: 356px;
+    z-index: 2;
+    background-image: url('../../assets/img/black_card.png');
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 312px;
+    height: 202px;
+    top: 61px;
+    right: 247px;
+    z-index: 1;
+    background-image: url('../../assets/img/white_card.png');
+  }
+}
+
+.credit-add__header {
+  font-size: 54px;
+  line-height: 63px;
+  color: $darker-white;
+  margin-bottom: 8px;
+}
+
+.credit-add__slogan {
+  font-size: 22px;
+  line-height: 26px;
+  color: $light-gray;
+  font-weight: 400;
+  margin-bottom: 34px;
+}
+
+.credit-add__link {
+  display: block;
+  width: max-content;
+  background-color: $darker-white;
+  padding: 16px 36px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.4;
+  }
+}
