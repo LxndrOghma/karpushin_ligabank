@@ -1,7 +1,7 @@
 import React from 'react';
-import './credit-add.scss';
+import './credit-offer.scss';
 
-function CreditAdd() {
+function CreditOffer() {
   return (
     <section className='credit-add'>
       <div className='credit-add__wrapper'>
@@ -13,4 +13,4 @@ function CreditAdd() {
   );
 }
 
-export default CreditAdd;
+export default CreditOffer;

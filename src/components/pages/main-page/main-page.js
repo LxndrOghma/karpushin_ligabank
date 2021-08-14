@@ -1,5 +1,5 @@
 import React from 'react';
-import CreditAdd from '../../credit-add/credit-add';
+import CreditOffer from '../../credit-offer/credit-offer';
 import PageFooter from '../../footer/page-footer/page-footer';
 import PageHeader from '../../header/page-header/page-header';
 import './main-page.scss';
@@ -10,7 +10,7 @@ function MainPage() {
       <PageHeader />
       <main>
         <h1 className='visually-hidden'>ЛИГА Банк</h1>
-        <CreditAdd />
+        <CreditOffer />
       </main>
       <PageFooter />
     </div>
