@@ -24,27 +24,6 @@
   justify-content: space-between;
 }
 
-.converter-form__submit-button {
-  cursor: pointer;
-  width: 382px;
-  height: 60px;
-  background-color: $blue;
-  border-radius: 4px;
-  border-color: $blue;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 25px;
-  color: $darker-white;
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  &:active {
-    opacity: 0.4;
-  }
-}
-
 .converter-form__ammount-input:first-child {
   position: relative;
 

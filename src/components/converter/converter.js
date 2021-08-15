@@ -16,7 +16,7 @@ function Converter() {
           <AmmountInput inputType='have' />
           <AmmountInput inputType='need' />
           <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-          <button className='converter-form__submit-button' type='submit'>
+          <button className='button' type='submit'>
             Сохранить результат
           </button>
         </form>

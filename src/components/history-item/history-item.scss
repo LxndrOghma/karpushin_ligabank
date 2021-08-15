@@ -1,0 +1,32 @@
+.history__list-item:nth-child(n + 6) {
+  padding-left: 99px;
+}
+
+.history-item {
+  display: flex;
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.history-item__date {
+  width: 91px;
+  text-align: end;
+  margin-right: 40px;
+}
+
+.history-item__buy {
+  position: relative;
+  max-width: 125px;
+  margin-right: 65px;
+  
+  &::after {
+    position: absolute;
+    content: '';
+    width: 40px;
+    height: 18px;
+    top: 3px;
+    right: -53px;
+    background-image: url('../../assets/img/history_arrow.svg');
+  }
+
+}
