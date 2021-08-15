@@ -1,0 +1,31 @@
+@import '/src/styles/variables.scss';
+
+.not_found {
+  width: 100%;
+}
+
+.not-found__wrapper {
+  width: $site-width;
+  margin: 0 auto;
+}
+
+.not-found__header {
+  font-size: 54px;
+  line-height: 63px;
+  margin-bottom: 30px;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.not-found__button {
+  display: block;
+  width: max-content;
+  background-color: $blue;
+  color: $darker-white;
+  padding: 16px 36px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+  margin: 0 auto;
+}
