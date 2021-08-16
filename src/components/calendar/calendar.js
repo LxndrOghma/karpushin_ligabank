@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import PropTypes from 'prop-types';
 import 'react-datepicker/dist/react-datepicker.css';
 import { TODAY } from '../../const';
-import './caleendar.scss';
+import './calendar.scss';
 
 function Calendar({selectedDate = TODAY, setSelectedDate}) {
   const DATE_FORMAT = 'd.MM.yyyy';
@@ -18,6 +18,7 @@ function Calendar({selectedDate = TODAY, setSelectedDate}) {
       dateFormat={DATE_FORMAT}
       calendarStartDay={1}
       minDate={minDate}
+      maxDate={TODAY}
     />
   );
 }

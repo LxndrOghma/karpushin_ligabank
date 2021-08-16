@@ -8,15 +8,23 @@ const siteMenuLinks = [
 
 const ACTIVE_MENU_LINK = 'Конвертер валют';
 
-const Currencies = [ 'RUB', 'USD', 'EUR', 'GBR', 'CNY'];
+const Currencies = [ 'RUB', 'USD', 'EUR', 'GBP', 'CNY'];
+
+const curreciesList = Currencies.join(',');
 
 const TODAY = new Date();
 
 const MAIN_PAGE = '/';
 
-const Pages = {
-  '/' : 'Конвертер валют',
+const MAX_CHARS = 8;
+
+const Rates = {
+  LIVE: '/live',
+  HISTORICAL: '/historical',
 };
+
+const ACCES_KEY = '?access_key=b9a19ba0f8edbbb4bf8f4e221826f5c0';
+
 
 export {
   siteMenuLinks,
@@ -24,5 +32,8 @@ export {
   Currencies,
   TODAY,
   MAIN_PAGE,
-  Pages
+  MAX_CHARS,
+  Rates,
+  ACCES_KEY,
+  curreciesList
 };
