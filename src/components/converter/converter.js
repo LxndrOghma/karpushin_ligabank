@@ -1,9 +1,11 @@
+import { nanoid } from 'nanoid';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MAX_CHARS, TODAY } from '../../const';
+import { createConvertation } from '../../store/action';
 import { fetchExchangeRates, fetchHistoryExchangeRates } from '../../store/api-action';
-import { getExchangeRates } from '../../store/selectors';
-import { convertMoney, getMaxLengthString, setConverterValues } from '../../utils';
+import { getConvertationsHistory, getExchangeRates } from '../../store/selectors';
+import { convertMoney, getMaxLengthString, getNumericFormatedData, setConverterValues, updateConvertationsHistory } from '../../utils';
 import AmmountInput from '../ammount-input/ammount-input';
 import Calendar from '../calendar/calendar';
 import './converter.scss';
@@ -20,6 +22,7 @@ function Converter() {
   const [buyCurrency, setBuyCurrency] = useState('USD');
 
   const exchangeRates = useSelector(getExchangeRates);
+  const convertationsHistory = useSelector(getConvertationsHistory);
 
   const dispatch = useDispatch();
 
@@ -63,6 +66,23 @@ function Converter() {
     setBuyValue(convertedBuyValue);
   };
 
+  const onFormSubmit = (evt) => {
+    evt.preventDefault();
+
+    const newConvertation = {
+      id: nanoid(),
+      date: getNumericFormatedData(selectedDate, true),
+      sellValue: sellValue,
+      buyValue: buyValue,
+      sellCurrency: sellCurrency,
+      buyCurrency: buyCurrency,
+    };
+
+    const updatedHistory = updateConvertationsHistory(newConvertation, convertationsHistory);
+
+    dispatch(createConvertation(updatedHistory));
+  };
+
   useEffect(() => {
     if (selectedDate === TODAY) {
       dispatch(fetchExchangeRates())
@@ -82,7 +102,7 @@ function Converter() {
     <section className='converter'>
       <div className='converter__wrapper'>
         <h2 className='converter__header'>Конвертер валют</h2>
-        <form className='converter__form converter-form'>
+        <form className='converter__form converter-form' onSubmit={onFormSubmit}>
           <AmmountInput inputType='sell' value={sellValue} onInputChange={onSellValueChange} currencyValue={sellCurrency} onSelectChange={onSellCurrencyChange} />
           <AmmountInput inputType='buy' value={buyValue} onInputChange={onBuyValueChange} currencyValue={buyCurrency} onSelectChange={onBuyCurrencyChange} />
           <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />

@@ -1,6 +1,8 @@
+import { HISTORY_LENGTH, SYMBOLS_AFTER_COMMA } from './const';
+
 const getMaxLengthString = (string, maxLength) => string.length > maxLength ? string.substr(0, maxLength) : string;
 
-const convertMoney = (value, sellCurrency, buyCurrency, exchangeRate) => (value / exchangeRate[sellCurrency] * exchangeRate[buyCurrency]).toFixed(3);
+const convertMoney = (value, sellCurrency, buyCurrency, exchangeRate) => (value / exchangeRate[sellCurrency] * exchangeRate[buyCurrency]).toFixed(SYMBOLS_AFTER_COMMA);
 
 const setConverterValues = (value, convertibleValueSetter, resultValueSetter, convertableCurrency, resultCurrency, exchangeRates) => {
   convertibleValueSetter(value.toString());
@@ -8,7 +10,7 @@ const setConverterValues = (value, convertibleValueSetter, resultValueSetter, co
   resultValueSetter(convertedValue.toString());
 };
 
-const getNumericFormatedData = (utcDate) => {
+const getNumericFormatedData = (utcDate, dayFirst = false) => {
   const date = new Date(utcDate);
 
   let dd = date.getDate();
@@ -19,12 +21,27 @@ const getNumericFormatedData = (utcDate) => {
 
   const yy = date.getFullYear();
 
+  if (dayFirst === true) {
+    return `${dd}.${mm}.${yy}`;
+  }
+
   return `${yy}-${mm}-${dd}`;
 };
+
+
+const updateConvertationsHistory = (newConvertation, convertationsHistory) => {
+
+  const cutedHistery = convertationsHistory.length > HISTORY_LENGTH ? convertationsHistory.slice(0, convertationsHistory.length - 1) : convertationsHistory;
+  const updatedHistory = [newConvertation, ...cutedHistery];
+
+  return updatedHistory;
+};
+
 
 export {
   getMaxLengthString,
   convertMoney,
   setConverterValues,
-  getNumericFormatedData
+  getNumericFormatedData,
+  updateConvertationsHistory
 };
