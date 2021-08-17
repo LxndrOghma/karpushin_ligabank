@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
-import App from './components/app/app';
+import App from './Components/app/app';
 import { createApi } from './services/api';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
