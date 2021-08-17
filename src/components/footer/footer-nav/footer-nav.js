@@ -1,30 +1,13 @@
 import React from 'react';
+import { footerMenuLinks } from '../../../const';
+import FooterNavItem from '../footer-nav-item/footer-nav-item';
 import './footer-nav.scss';
 
 function FooterNav() {
   return (
     <div className='page-footer__nav footer-nav'>
       <ul className='footer-nav__list'>
-        <li className='footer-nav__list-item'>
-          <a href='/'>
-                Услуги
-          </a>
-        </li>
-        <li className='footer-nav__list-item'>
-          <a href='/'>
-                Рассчитать кредит
-          </a>
-        </li>
-        <li className='footer-nav__list-item'>
-          <a href='/'>
-                Контакты
-          </a>
-        </li>
-        <li className='footer-nav__list-item'>
-          <a href='/'>
-                Задать вопрос
-          </a>
-        </li>
+        {footerMenuLinks.map((link) => <FooterNavItem key={`footer_${link}`} footerMenuLink={link} />)}
       </ul>
     </div>
 

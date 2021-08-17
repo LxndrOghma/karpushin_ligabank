@@ -5,7 +5,12 @@ import { MAX_CHARS, TODAY } from '../../const';
 import { createConvertation } from '../../store/action';
 import { fetchExchangeRates, fetchHistoryExchangeRates } from '../../store/api-action';
 import { getConvertationsHistory, getExchangeRates } from '../../store/selectors';
-import { convertMoney, getMaxLengthString, getNumericFormatedData, setConverterValues, updateConvertationsHistory } from '../../utils';
+import {
+  convertMoney,
+  getMaxLengthString,
+  getNumericFormatedData,
+  setConverterValues,
+  updateConvertationsHistory } from '../../utils';
 import AmmountInput from '../ammount-input/ammount-input';
 import Calendar from '../calendar/calendar';
 import './converter.scss';
@@ -26,7 +31,7 @@ function Converter() {
 
   const dispatch = useDispatch();
 
-  const onSellValueChange = (evt) => {
+  const handleSellValueChange = (evt) => {
     const value = evt.target.value;
 
     if (value < 0) {
@@ -39,7 +44,7 @@ function Converter() {
     setConverterValues(+formatedValue, setSellValue, setBuyValue, sellCurrency, buyCurrency, exchangeRates);
   };
 
-  const onBuyValueChange = (evt) => {
+  const handleBuyValueChange = (evt) => {
     const value = evt.target.value;
 
     if (value < 0) {
@@ -52,21 +57,21 @@ function Converter() {
     setConverterValues(+formatedValue, setBuyValue, setSellValue, buyCurrency, sellCurrency, exchangeRates);
   };
 
-  const onSellCurrencyChange = (evt) => {
+  const handleSellCurrencyChange = (evt) => {
     const value = evt.target.value;
     setSellCurrency(value);
     const convertedBuyValue = convertMoney(+sellValue, value ,buyCurrency, exchangeRates);
     setBuyValue(convertedBuyValue);
   };
 
-  const onBuyCurrencyChange = (evt) => {
+  const handleBuyCurrencyChange = (evt) => {
     const value = evt.target.value;
     setBuyCurrency(value);
     const convertedBuyValue = convertMoney(+sellValue, sellCurrency ,value, exchangeRates);
     setBuyValue(convertedBuyValue);
   };
 
-  const onFormSubmit = (evt) => {
+  const handleFormSubmit = (evt) => {
     evt.preventDefault();
 
     const newConvertation = {
@@ -100,9 +105,21 @@ function Converter() {
     <section className='converter'>
       <div className='converter__wrapper'>
         <h2 className='converter__header'>Конвертер валют</h2>
-        <form className='converter__form converter-form' onSubmit={onFormSubmit}>
-          <AmmountInput inputType='sell' value={sellValue} onInputChange={onSellValueChange} currencyValue={sellCurrency} onSelectChange={onSellCurrencyChange} />
-          <AmmountInput inputType='buy' value={buyValue} onInputChange={onBuyValueChange} currencyValue={buyCurrency} onSelectChange={onBuyCurrencyChange} />
+        <form className='converter__form converter-form' onSubmit={handleFormSubmit}>
+          <AmmountInput
+            inputType='sell'
+            value={sellValue}
+            onInputChange={handleSellValueChange}
+            currencyValue={sellCurrency}
+            onSelectChange={handleSellCurrencyChange}
+          />
+          <AmmountInput
+            inputType='buy'
+            value={buyValue}
+            onInputChange={handleBuyValueChange}
+            currencyValue={buyCurrency}
+            onSelectChange={handleBuyCurrencyChange}
+          />
           <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
           <button className='button' type='submit'>
             Сохранить результат

@@ -6,6 +6,13 @@ const siteMenuLinks = [
   'Задать вопрос',
 ];
 
+const footerMenuLinks = [
+  'Услуги',
+  'Рассчитать кредит',
+  'Контакты',
+  'Задать вопрос',
+];
+
 const ACTIVE_MENU_LINK = 'Конвертер валют';
 
 const Currencies = [ 'RUB', 'USD', 'EUR', 'GBP', 'CNY'];
@@ -29,6 +36,7 @@ const HISTORY_LENGTH = 9;
 
 export {
   siteMenuLinks,
+  footerMenuLinks,
   ACTIVE_MENU_LINK,
   Currencies,
   TODAY,

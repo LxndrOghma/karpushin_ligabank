@@ -14,7 +14,14 @@ function HistoryItem({convertation}) {
 }
 
 HistoryItem.propTypes = {
-  convertation: PropTypes.object.isRequired,
+  convertation: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    sellValue: PropTypes.string.isRequired,
+    sellCurrency: PropTypes.string.isRequired,
+    buyValue: PropTypes.string.isRequired,
+    buyCurrency: PropTypes.string.isRequired,
+  },
+  ),
 };
 
 export default HistoryItem;
