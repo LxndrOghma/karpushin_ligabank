@@ -15,6 +15,8 @@
   background-color: $darker-white;
   height: 477px;
   padding: 44px 70px 39px;
+  display: flex;
+  flex-direction: column;
 }
 
 .hisory__header {
