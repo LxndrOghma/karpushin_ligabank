@@ -26,6 +26,8 @@ function Converter() {
   const [sellCurrency, setSellCurrency] = useState('RUB');
   const [buyCurrency, setBuyCurrency] = useState('USD');
 
+  const [isDisabled, setIsDisabled] = React.useState(false);
+
   const exchangeRates = useSelector(getExchangeRates);
   const convertationsHistory = useSelector(getConvertationsHistory);
 
@@ -89,10 +91,13 @@ function Converter() {
   };
 
   useEffect(() => {
+    setIsDisabled(true);
     if (selectedDate === TODAY) {
-      dispatch(fetchExchangeRates());
+      dispatch(fetchExchangeRates())
+        .finally(() => setIsDisabled(false));
     } else {
-      dispatch(fetchHistoryExchangeRates(selectedDate));
+      dispatch(fetchHistoryExchangeRates(selectedDate))
+        .finally(() => setIsDisabled(false));
     }
   }, [selectedDate, dispatch]);
 
@@ -112,6 +117,7 @@ function Converter() {
             onInputChange={handleSellValueChange}
             currencyValue={sellCurrency}
             onSelectChange={handleSellCurrencyChange}
+            isDisabled={isDisabled}
           />
           <AmmountInput
             inputType='buy'
@@ -119,9 +125,10 @@ function Converter() {
             onInputChange={handleBuyValueChange}
             currencyValue={buyCurrency}
             onSelectChange={handleBuyCurrencyChange}
+            isDisabled={isDisabled}
           />
-          <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-          <button className='button' type='submit'>
+          <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} isDisabled={isDisabled} />
+          <button className='button' type='submit' disabled={isDisabled}>
             Сохранить результат
           </button>
         </form>
