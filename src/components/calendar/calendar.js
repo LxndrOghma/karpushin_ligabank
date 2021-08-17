@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { TODAY } from '../../const';
 import './calendar.scss';
 
-function Calendar({selectedDate = TODAY, setSelectedDate}) {
+function Calendar({selectedDate = TODAY, setSelectedDate, isDisabled}) {
   const DATE_FORMAT = 'd.MM.yyyy';
   const minDate = new Date(TODAY);
   minDate.setDate(minDate.getDate() - 7);
@@ -19,6 +19,7 @@ function Calendar({selectedDate = TODAY, setSelectedDate}) {
       calendarStartDay={1}
       minDate={minDate}
       maxDate={TODAY}
+      disabled={isDisabled}
     />
   );
 }
@@ -26,6 +27,7 @@ function Calendar({selectedDate = TODAY, setSelectedDate}) {
 Calendar.propTypes ={
   selectedDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
   setSelectedDate: PropTypes.func.isRequired,
+  isDisabled: PropTypes.bool.isRequired,
 };
 
 export default Calendar;
