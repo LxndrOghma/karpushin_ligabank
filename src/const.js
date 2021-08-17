@@ -25,8 +25,6 @@ const Rates = {
 
 const ACCES_KEY = '?access_key=b9a19ba0f8edbbb4bf8f4e221826f5c0';
 
-const SYMBOLS_AFTER_COMMA = 4;
-
 const HISTORY_LENGTH = 9;
 
 export {
@@ -39,6 +37,5 @@ export {
   Rates,
   ACCES_KEY,
   curreciesList,
-  SYMBOLS_AFTER_COMMA,
   HISTORY_LENGTH
 };

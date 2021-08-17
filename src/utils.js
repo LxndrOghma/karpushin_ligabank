@@ -1,8 +1,12 @@
-import { HISTORY_LENGTH, SYMBOLS_AFTER_COMMA } from './const';
+import { HISTORY_LENGTH } from './const';
 
 const getMaxLengthString = (string, maxLength) => string.length > maxLength ? string.substr(0, maxLength) : string;
 
-const convertMoney = (value, sellCurrency, buyCurrency, exchangeRate) => (value / exchangeRate[sellCurrency] * exchangeRate[buyCurrency]).toFixed(SYMBOLS_AFTER_COMMA);
+const convertMoney = (value, sellCurrency, buyCurrency, exchangeRate) => {
+  const convertedValue = (value / exchangeRate[sellCurrency] * exchangeRate[buyCurrency]);
+  const formatedValue = Math.floor(+convertedValue * 10000) / 10000;
+  return formatedValue.toString();
+};
 
 const setConverterValues = (value, convertibleValueSetter, resultValueSetter, convertableCurrency, resultCurrency, exchangeRates) => {
   convertibleValueSetter(value.toString());

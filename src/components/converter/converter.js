@@ -15,8 +15,8 @@ function Converter() {
 
   const [selectedDate, setSelectedDate] = useState(TODAY);
 
-  const [sellValue, setSellValue] = useState('');
-  const [buyValue, setBuyValue] = useState('');
+  const [sellValue, setSellValue] = useState('0');
+  const [buyValue, setBuyValue] = useState('0');
 
   const [sellCurrency, setSellCurrency] = useState('RUB');
   const [buyCurrency, setBuyCurrency] = useState('USD');
@@ -85,18 +85,16 @@ function Converter() {
 
   useEffect(() => {
     if (selectedDate === TODAY) {
-      dispatch(fetchExchangeRates())
-        .then(() => {
-          setBuyValue(convertMoney(+sellValue, sellCurrency, buyCurrency, exchangeRates));
-        });
+      dispatch(fetchExchangeRates());
     } else {
-      dispatch(fetchHistoryExchangeRates(selectedDate))
-        .then(() => {
-          setBuyValue(convertMoney(+sellValue, sellCurrency, buyCurrency, exchangeRates));
-        });
+      dispatch(fetchHistoryExchangeRates(selectedDate));
     }
+  }, [selectedDate, dispatch]);
+
+  useEffect(() => {
+    setBuyValue(convertMoney(+sellValue, sellCurrency, buyCurrency, exchangeRates));
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ dispatch, selectedDate]);
+  }, [exchangeRates]);
 
   return (
     <section className='converter'>

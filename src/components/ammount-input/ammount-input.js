@@ -19,10 +19,10 @@ function AmmountInput({inputType, value, onInputChange, currencyValue, onSelectC
 
 AmmountInput.propTypes ={
   inputType: PropTypes.string.isRequired,
-  value: PropTypes.number,
-  onInputChange: PropTypes.func,
-  currencyValue: PropTypes.string,
-  onSelectChange: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  currencyValue: PropTypes.string.isRequired,
+  onSelectChange: PropTypes.func.isRequired,
 };
 
 export default AmmountInput;
