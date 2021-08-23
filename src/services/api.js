@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://api.currencylayer.com/';
+const BASE_URL = 'https://api.currencylayer.com/';
 const REQUEST_TIMEOUT = 5000;
 
 export const createApi = () => {
