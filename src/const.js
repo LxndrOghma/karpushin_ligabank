@@ -26,11 +26,11 @@ const MAIN_PAGE = '/';
 const MAX_CHARS = 8;
 
 const Rates = {
-  LIVE: '/live',
-  HISTORICAL: '/historical',
+  LIVE: '/latest.json',
+  HISTORICAL: '/historical/',
 };
 
-const ACCES_KEY = '?access_key=b9a19ba0f8edbbb4bf8f4e221826f5c0';
+const ACCES_KEY = '?app_id=6d5013e3b7a0433d939bddb62737e6b6';
 
 const HISTORY_LENGTH = 9;
 
